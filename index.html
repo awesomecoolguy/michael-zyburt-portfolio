@@ -3,162 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Michael Zyburt Portfolio - Dual-discipline Electrical & Aerospace Engineer | Avionics, Propulsion, Autonomous Systems">
     <title>Michael Zyburt | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        :root { --tw-color-primary: #00d4ff; }
-        * { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-        .tail-container * { font-family: 'Inter', system_ui, sans-serif; }
+        
+        :root { --primary: #00d4ff; }
+        
+        * { transition-property: color, background-color, border-color; transition-duration: 150ms; }
+        
+        body { font-family: 'Inter', system_ui, sans-serif; }
         .heading-font { font-family: 'Space Grotesk', sans-serif; }
-        .hero-bg { background: linear-gradient(135deg, #0a1428 0%, #112a4a 100%); }
-        .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card:hover { transform: translateY(-4px); box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15); }
-        .modal { animation: modalPop 0.3s ease-out; }
-        @keyframes modalPop { 0% { transform: scale(0.95); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: #00d4ff; }
-        .nav-link:hover::after { width: 100%; }
-        .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #00d4ff var(--scroll), transparent var(--scroll)); z-index: 50; width: 100%; }
-        @media (max-width: 640px) { .hero-text { font-size: 2.5rem; line-height: 1.1; } }
-/* === CHATBOT WIDGET === */
-#chat-widget {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9999;
-}
-
-.chat-button {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #00d4ff, #00a8cc);
-  color: #0a1428;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.75rem;
-}
-
-.chat-button:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
-}
-
-.chat-window {
-  position: fixed;
-  bottom: 100px;
-  right: 24px;
-  width: 380px;
-  max-height: 520px;
-  background: #112a4a;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.chat-header {
-  background: #0a1428;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-}
-
-.chat-messages {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  background: #0f2238;
-}
-
-.message {
-  max-width: 82%;
-  padding: 13px 17px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  animation: fadeInUp 0.3s ease;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.bot-message {
-  background: #1e3a5f;
-  align-self: flex-start;
-  border-bottom-left-radius: 6px;
-  color: #e0f2ff;
-}
-
-.user-message {
-  background: #00d4ff;
-  color: #0a1428;
-  align-self: flex-end;
-  border-bottom-right-radius: 6px;
-  font-weight: 500;
-}
-
-.chat-input {
-  padding: 16px 18px;
-  background: #0a1428;
-  display: flex;
-  gap: 10px;
-  border-top: 1px solid rgba(0, 212, 255, 0.15);
-}
-
-.chat-input input {
-  flex: 1;
-  background: #112a4a;
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  border-radius: 9999px;
-  padding: 13px 22px;
-  color: white;
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.chat-input input:focus {
-  border-color: #00d4ff;
-}
-
-.chat-input button {
-  background: #00d4ff;
-  color: #0a1428;
-  border: none;
-  width: 46px;
-  height: 46px;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.chat-input button:hover {
-  background: #00a8cc;
-  transform: scale(1.05);
-}
+        
+        .hero-bg { 
+            background: linear-gradient(135deg, #0a1428 0%, #112a4a 100%);
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00d4ff;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .modal {
+            animation: modalPop 0.3s ease-out forwards;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        /* Chatbot Styles */
+        #chat-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+        }
+        
+        .chat-button {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #00d4ff, #00a8cc);
+            color: #0a1428;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.75rem;
+        }
+        
+        .chat-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+        
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 380px;
+            max-height: 520px;
+            background: #112a4a;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: #0a1428;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: #0f2238;
+        }
+        
+        .message {
+            max-width: 82%;
+            padding: 13px 17px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            background: #1e3a5f;
+            align-self: flex-start;
+            border-bottom-left-radius: 6px;
+            color: #e0f2ff;
+        }
+        
+        .user-message {
+            background: #00d4ff;
+            color: #0a1428;
+            align-self: flex-end;
+            border-bottom-right-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .chat-input {
+            padding: 16px 18px;
+            background: #0a1428;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.15);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            background: #112a4a;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 9999px;
+            padding: 13px 22px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .chat-input input:focus {
+            border-color: #00d4ff;
+        }
+        
+        .voice-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: #00d4ff;
+            width: 36px;
+            height: 36px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .voice-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+        
+        .voice-btn.active {
+            background: #00d4ff;
+            color: #0a1428;
+            border-color: #00d4ff;
+        }
+        
+        .mic-btn {
+            background: #1e3a5f;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: #00d4ff;
+            width: 46px;
+            height: 46px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .mic-btn.listening {
+            background: #ff4757;
+            color: white;
+            animation: pulse 1.5s infinite;
+            border-color: #ff4757;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.6); }
+            70% { box-shadow: 0 0 0 12px rgba(255, 71, 87, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+        }
     </style>
 </head>
-<body class="tail-container bg-[#0a1428] text-white overflow-x-hidden">
-    <div id="scrollProgress" class="scroll-progress"></div>
-
+<body class="bg-[#0a1428] text-white">
+    
     <!-- NAVBAR -->
     <nav class="bg-[#0a1428]/95 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
@@ -166,133 +237,143 @@
                 <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">MZ</div>
                 <h1 class="heading-font text-2xl tracking-tighter">Michael Zyburt</h1>
             </div>
+            
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a onclick="navigateToSection('about')" class="nav-link cursor-pointer">ABOUT</a>
-                <a onclick="navigateToSection('skills')" class="nav-link cursor-pointer">SKILLS</a>
-                <a onclick="navigateToSection('publications')" class="nav-link cursor-pointer">PUBLICATIONS</a>
-                <a onclick="navigateToSection('projects')" class="nav-link cursor-pointer">PROJECTS</a>
-                <a onclick="navigateToSection('education')" class="nav-link cursor-pointer">EDUCATION</a>
+                <a href="#about" class="nav-link cursor-pointer">About</a>
+                <a href="#skills" class="nav-link cursor-pointer">Skills</a>
+                <a href="#projects" class="nav-link cursor-pointer">Projects</a>
+                <a href="#education" class="nav-link cursor-pointer">Education</a>
             </div>
+            
             <div class="flex items-center gap-x-3">
-                <a href="https://www.ucirvine.edu/" target="_blank" class="flex items-center gap-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-3xl text-sm font-medium">
-                    <i class="fa-solid fa-university"></i><span class="hidden sm:inline">UCI Samueli</span>
+                <a href="https://www.linkedin.com/in/michael-zyburt-" target="_blank" 
+                   class="hidden md:flex items-center gap-x-2 bg-white/10 hover:bg-white/20 px-5 py-2 rounded-3xl text-sm font-medium">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
                 </a>
-                <button onclick="copyContact()" class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
-                    <i class="fa-solid fa-envelope"></i><span class="hidden sm:inline">Get in Touch</span>
+                <button onclick="copyEmail()" 
+                        class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="hidden sm:inline">Get in Touch</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1"><i class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 border-t border-white/10 bg-[#0a1428]">
-            <div class="flex flex-col gap-y-4 text-sm font-medium pt-4">
-                <a onclick="navigateToSection('about');toggleMobileMenu()" class="py-2">ABOUT</a>
-                <a onclick="navigateToSection('skills');toggleMobileMenu()" class="py-2">SKILLS</a>
-                <a onclick="navigateToSection('publications');toggleMobileMenu()" class="py-2">PUBLICATIONS</a>
-                <a onclick="navigateToSection('projects');toggleMobileMenu()" class="py-2">PROJECTS</a>
-                <a onclick="navigateToSection('education');toggleMobileMenu()" class="py-2">EDUCATION</a>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section id="hero" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-12 md:py-0 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div class="space-y-6 md:space-y-8">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-xs md:text-sm font-medium px-5 py-2 rounded-3xl">
+    <section class="hero-bg min-h-[100dvh] flex items-center relative overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-12 items-center py-16">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-5 py-2 rounded-3xl">
                     <span class="relative flex h-3 w-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4ff] opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00d4ff]"></span>
                     </span>
                     MS Electrical Engineering • Expected June 2026
                 </div>
-                <h1 class="hero-text text-5xl md:text-7xl leading-none heading-font tracking-tighter">Michael Zyburt</h1>
-                <p class="text-xl md:text-2xl text-[#00d4ff]">Dual-discipline engineer turning ideas into flight-ready hardware</p>
-                <div class="max-w-md text-base md:text-lg leading-relaxed text-white/90">
+                
+                <h1 class="text-6xl md:text-7xl leading-none heading-font tracking-tighter">Michael Zyburt</h1>
+                
+                <p class="text-2xl text-[#00d4ff]">Dual-discipline engineer turning ideas into flight-ready hardware</p>
+                
+                <div class="max-w-md text-lg text-white/80">
                     “Scientists study the world as it is; engineers create the world that has never been” 
-                    <span class="text-[#00d4ff] font-medium">— Theodore von Kármán</span>
+                    <span class="text-[#00d4ff]">— Theodore von Kármán</span>
                 </div>
-                <div class="flex flex-wrap items-center gap-x-6 text-sm bg-white/10 backdrop-blur-md px-6 py-4 rounded-3xl">
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-envelope text-[#00d4ff]"></i>
-                        <a onclick="copyContact()" class="hover:text-[#00d4ff]">michaelzyburt@gmail.com</a>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-4">
-                    <a onclick="navigateToSection('projects')" class="bg-[#00d4ff] hover:bg-white text-[#0a1428] font-semibold px-8 py-4 rounded-3xl flex items-center gap-x-3 text-lg">
-                        <span>Explore My Projects</span><i class="fa-solid fa-arrow-right"></i>
+                
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" 
+                       class="bg-[#00d4ff] hover:bg-white text-[#0a1428] font-semibold px-8 py-4 rounded-3xl flex items-center gap-x-3 text-lg">
+                        Explore Projects <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" class="border border-white/30 hover:border-white/60 px-8 py-4 rounded-3xl flex items-center gap-x-3 text-lg">
-                        <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+                    <a href="#about" 
+                       class="border border-white/30 hover:border-white px-8 py-4 rounded-3xl flex items-center gap-x-3 text-lg">
+                        Learn More
                     </a>
                 </div>
             </div>
-            <div class="relative">
-                <div class="aspect-square bg-gradient-to-br from-[#112a4a] to-transparent rounded-[3rem] md:rounded-[4rem] p-6 md:p-8 flex items-center justify-center relative overflow-hidden">
-                    <img src="https://picsum.photos/id/1015/800/800" alt="Michael Zyburt" class="rounded-3xl shadow-2xl object-cover w-full h-full">
+            
+            <div class="relative hidden md:block">
+                <div class="aspect-square bg-gradient-to-br from-[#112a4a] to-transparent rounded-[4rem] p-8 flex items-center justify-center">
+                    <img src="https://picsum.photos/id/1015/600/600" alt="Michael Zyburt" 
+                         class="rounded-3xl shadow-2xl object-cover w-full h-full">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
+    <section id="about" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-20">
         <div class="grid md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5">
-                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Systems & Design Background</span>
-                <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3">Dual-discipline engineer focused on rapid prototyping, testing, and avionics integration</h2>
-                <div class="h-px w-12 bg-[#00d4ff] my-8"></div>
+                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Background</span>
+                <h2 class="section-header mt-3">Dual-discipline engineer focused on rapid prototyping, testing, and avionics integration</h2>
             </div>
-            <div class="md:col-span-7 text-base md:text-lg leading-relaxed text-white/80">
-                <p class="mb-6">Brings a rigorous, hands-on approach to engineering challenges, demonstrated through the ground-up design of custom amplifiers, autonomous rovers, and maglev control systems.</p>
-                <p>Skilled in the full hardware lifecycle—from CAD modeling and BOM management to SMT soldering and rigorous performance testing. Committed to designing reliable, fault-tolerant electrical systems for mission-critical applications.</p>
+            <div class="md:col-span-7 text-lg text-white/80 leading-relaxed">
+                <p class="mb-6">I bring a rigorous, hands-on approach to engineering challenges, demonstrated through the ground-up design of custom amplifiers, autonomous rovers, and maglev control systems.</p>
+                <p>Skilled in the full hardware lifecycle — from CAD modeling and BOM management to SMT soldering and rigorous performance testing. I am committed to designing reliable, fault-tolerant electrical systems for mission-critical applications.</p>
             </div>
         </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="bg-[#112a4a] py-16 md:py-24">
+    <section id="skills" class="bg-[#112a4a] py-20">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
-            <div class="flex justify-between items-baseline mb-12">
+            <div class="flex justify-between items-end mb-12">
                 <div>
                     <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Technical Skills</span>
-                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">Engineering Analysis • Hardware • Testing</h2>
+                    <h2 class="section-header">Engineering Analysis • Hardware • Testing</h2>
                 </div>
             </div>
-            <div class="grid md:grid-cols-4 gap-6 md:gap-8">
+            
+            <div class="grid md:grid-cols-4 gap-6">
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-cube"></i> Engineering Analysis & Design</h4>
-                    <ul class="space-y-4 text-sm">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2">
+                        <i class="fa-solid fa-cube"></i> Engineering Analysis
+                    </h4>
+                    <ul class="space-y-3 text-sm">
                         <li>MATLAB, Python, C++</li>
                         <li>VHDL (FPGA)</li>
-                        <li>SolidWorks (CAD)</li>
+                        <li>SolidWorks CAD</li>
                         <li>PID Controllers</li>
-                        <li>Digital Signal Processing (DSP)</li>
-                        <li>Circuit Design</li>
+                        <li>Digital Signal Processing</li>
                     </ul>
                 </div>
+                
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-microchip"></i> Hardware & Avionics</h4>
-                    <ul class="space-y-4 text-sm">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2">
+                        <i class="fa-solid fa-microchip"></i> Hardware & Avionics
+                    </h4>
+                    <ul class="space-y-3 text-sm">
                         <li>Wire Harness Design</li>
                         <li>PCB Rework & Repair</li>
-                        <li>Advanced Soldering (SMT, fine-pitch)</li>
-                        <li>Connector Assembly (JST, Molex, Deutsch)</li>
+                        <li>Advanced Soldering (SMT)</li>
+                        <li>Connector Assembly</li>
                     </ul>
                 </div>
+                
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-vial"></i> Testing & Diagnostics</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li>Oscilloscopes, Multimeters, Signal Generators</li>
-                        <li>DC Power Supplies</li>
-                        <li>Battery/Cell Characterization</li>
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2">
+                        <i class="fa-solid fa-vial"></i> Testing & Diagnostics
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>Oscilloscopes & Multimeters</li>
+                        <li>Battery Characterization</li>
                         <li>Thermal Management Testing</li>
+                        <li>Environmental Chambers</li>
                     </ul>
                 </div>
+                
                 <div class="bg-[#0a1428] rounded-3xl p-8">
-                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2"><i class="fa-solid fa-file-lines"></i> Documentation</h4>
-                    <ul class="space-y-4 text-sm">
+                    <h4 class="font-semibold text-[#00d4ff] mb-6 flex items-center gap-x-2">
+                        <i class="fa-solid fa-file-lines"></i> Documentation
+                    </h4>
+                    <ul class="space-y-3 text-sm">
                         <li>Technical Spec Sheets</li>
-                        <li>Bill of Materials (BOM) Management</li>
+                        <li>Bill of Materials (BOM)</li>
                         <li>Test Report Generation</li>
                     </ul>
                 </div>
@@ -300,65 +381,59 @@
         </div>
     </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24 bg-white/5">
-        <div class="max-w-2xl">
-            <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Publications</span>
-            <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mt-3 mb-8">Fully Differential Two-Stage CMOS Amplifier in 45 nm Technology</h2>
-            <p class="text-[#00d4ff] font-medium">Co-Author (2025)</p>
-            <ul class="mt-6 space-y-6 text-base md:text-lg leading-relaxed text-white/80">
-                <li class="flex gap-4"><span class="text-[#00d4ff] text-xl">•</span> Co-authored a technical paper presenting the design and analysis of a two-stage CMOS operational amplifier implemented in a 45 nm process.</li>
-                <li class="flex gap-4"><span class="text-[#00d4ff] text-xl">•</span> Validated performance metrics including DC power consumption, output voltage swing (3.75 Vpp), and Common-Mode Rejection Ratio (93.43 dB) using Cadence Virtuoso/Spectre simulations.</li>
-            </ul>
-        </div>
-    </section>
-
     <!-- PROJECTS -->
-    <section id="projects" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-16 md:py-24">
+    <section id="projects" class="max-w-screen-2xl mx-auto px-6 md:px-8 py-20">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Engineering Projects</span>
-                <h2 class="heading-font text-4xl md:text-5xl tracking-tighter">From concept to flight-ready hardware</h2>
+                <span class="uppercase text-[#00d4ff] text-sm font-medium tracking-[2px]">Featured Work</span>
+                <h2 class="section-header">From concept to flight-ready hardware</h2>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projectGrid"></div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid">
+            <!-- Populated by JavaScript -->
+        </div>
     </section>
 
     <!-- EDUCATION -->
-    <section id="education" class="bg-[#112a4a] py-16 md:py-24">
+    <section id="education" class="bg-[#112a4a] py-20">
         <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="heading-font text-4xl md:text-5xl tracking-tighter mb-8">University of California, Irvine</h2>
+                    <h2 class="section-header mb-10">University of California, Irvine</h2>
+                    
                     <div class="space-y-8">
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">MS Electrical Engineering</div>
                                 <div class="text-sm text-white/60">Expected June 2026</div>
                             </div>
-                            <div class="flex-1 text-white/70">Advanced studies in RF systems, embedded control, and avionics integration.</div>
+                            <div class="text-white/80">Advanced studies in RF systems, embedded control, and avionics integration.</div>
                         </div>
+                        
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Aerospace Engineering</div>
                                 <div class="text-sm text-white/60">June 2024</div>
                             </div>
-                            <div class="flex-1 text-white/70">Senior Capstone: Liquid-bipropellant rocket avionics & ruggedization.</div>
+                            <div class="text-white/80">Senior Capstone: Liquid-bipropellant rocket avionics & ruggedization.</div>
                         </div>
+                        
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">BS Electrical Engineering</div>
                                 <div class="text-sm text-white/60">June 2024</div>
                             </div>
-                            <div class="flex-1 text-white/70">Double major with focus on analog circuits, DSP, and high-altitude payloads.</div>
+                            <div class="text-white/80">Double major with focus on analog circuits, DSP, and high-altitude payloads.</div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="flex items-center justify-center text-center">
                     <div>
-                        <div class="text-8xl font-black text-white/10 mb-2">UCI</div>
-                        <p class="text-white/60 text-lg">Samueli School of Engineering</p>
-                        <div class="mt-8 text-xs uppercase tracking-widest text-[#00d4ff]">Proud Anteater • Built to fly</div>
+                        <div class="text-[140px] font-black text-white/10 mb-2">UCI</div>
+                        <p class="text-white/60 text-xl">Samueli School of Engineering</p>
+                        <div class="mt-8 text-xs uppercase tracking-[3px] text-[#00d4ff]">Proud Anteater • Built to fly</div>
                     </div>
                 </div>
             </div>
@@ -371,258 +446,564 @@
             <div class="flex flex-col md:flex-row items-center gap-x-8 text-white/60">
                 <p>© 2026 Michael Zyburt • All hardware built by hand</p>
                 <a href="#" class="hover:text-[#00d4ff]">Download full resume (PDF)</a>
-                <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/awesomecoolguy/" target="_blank" class="hover:text-[#00d4ff] flex items-center gap-x-1"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
-            <div onclick="copyContact()" class="cursor-pointer flex items-center text-[#00d4ff] hover:text-white text-sm font-medium">
+            
+            <div onclick="copyEmail()" class="cursor-pointer flex items-center text-[#00d4ff] hover:text-white text-sm font-medium">
                 <i class="fa-solid fa-envelope mr-2"></i>
-                <span id="footerEmail">michaelzyburt@gmail.com</span> (click to copy)
+                <span>michaelzyburt@gmail.com</span>
             </div>
-            <div class="text-white/40 text-xs">Made from your Google Slides + latest resume • Fully mobile-optimized</div>
+            
+            <div class="flex items-center gap-x-4 text-white/40 text-xs">
+                <a href="http://www.linkedin.com/in/michael-zyburt-" target="_blank" class="hover:text-white">LinkedIn</a>
+                <span>•</span>
+                <a href="https://github.com/awesomecoolguy/" target="_blank" class="hover:text-white">GitHub</a>
+            </div>
         </div>
     </footer>
 
-    <!-- PROJECT MODAL (fixed wide layout) -->
-    <div id="projectModal" onclick="if(event.target === this) closeModal()" class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a1428] max-w-6xl w-full max-h-[92vh] overflow-hidden rounded-3xl shadow-2xl flex flex-col">
-            <div class="sticky top-0 bg-[#0a1428] border-b border-white/10 px-8 py-5 flex justify-between items-center z-10">
-                <h3 id="modalTitle" class="heading-font text-3xl"></h3>
-                <button onclick="closeModal()" class="text-3xl text-white/60 hover:text-white">✕</button>
+    <!-- FLOATING CHATBOT WIDGET -->
+    <div id="chat-widget">
+        <div onclick="toggleChat()" class="chat-button" title="Chat with Michael's AI Assistant">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        
+        <div id="chat-window" class="chat-window">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-[#0a1428] shadow-inner">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-tight">Portfolio Assistant</div>
+                        <div class="text-[10px] text-[#00d4ff] flex items-center gap-x-1.5">
+                            <span class="inline-block w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse"></span>
+                            ONLINE • VOICE ENABLED
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-x-2">
+                    <!-- Voice Toggle -->
+                    <button id="voice-toggle" onclick="toggleVoice()" class="voice-btn" title="Toggle voice output">
+                        <i class="fa-solid fa-volume-up" id="voice-icon"></i>
+                    </button>
+                    
+                    <button onclick="toggleChat()" class="text-white/60 hover:text-white text-2xl leading-none px-1">×</button>
+                </div>
             </div>
-            <div class="flex-1 overflow-auto p-8" id="modalContent"></div>
+            
+            <!-- Messages -->
+            <div id="chat-messages" class="chat-messages"></div>
+            
+            <!-- Input -->
+            <div class="chat-input">
+                <input type="text" id="chat-input-field" placeholder="Ask about projects, skills, or experience..." 
+                       onkeypress="if (event.key === 'Enter') sendMessage()">
+                
+                <button id="mic-btn" class="mic-btn" onclick="startListening()" title="Speak your message">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                
+                <button onclick="sendMessage()" class="bg-[#00d4ff] text-[#0a1428] w-11 h-11 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        function initializeTailwind() { tailwind.config = { content: [], theme: { extend: {} } }; }
-
+        // Tailwind script
+        function initializeTailwind() {
+            tailwind.config = { content: [], theme: { extend: {} } };
+        }
+        
+        // Projects Data
         const projectsData = [
-            { id: 1, title: "Analog Circuit Design & Amplifier Development", category: "Electronics", image: "board1.jpg", description: "Executed the full-cycle design and fabrication of a custom multi-stage amplifier using discrete transistors. Unlike pre-packaged IC solutions, this project required a 'first-principles' approach, demanding precise calculation of DC operating points and small-signal parameters to meet strict specifications for gain, bandwidth, and input/output impedance. The final prototype demonstrated the ability to translate theoretical models into functional, high-fidelity hardware.", bullets: ["Circuit Topology Design: Selected and configured amplifier stages (e.g., Common Emitter/Source, Differential Pair) to optimize for specific trade-offs between voltage gain and output swing.", "Component Level Calculation: Manually calculated bias resistor networks and coupling capacitor values to establish stable Q-points and ensure linear operation across the desired frequency range.", "Stability Analysis: Diagnosed and mitigated parasitic oscillations and ringing during the breadboarding phase using compensation techniques and improved grounding strategies.", "Performance Verification: Validated design requirements by measuring key metrics—including voltage gain (Av), slew rate, and Total Harmonic Distortion (THD)—using oscilloscopes and signal generators."], imageCaption: "Multi-stage transistor amplifier prototype on the bench" },
-            { id: 2, title: "Rocket Electrical Systems & Avionics (Senior Capstone)", category: "Rocket", image: "usb.png", description: "Served as a key engineer for a multidisciplinary team (2022-2023) tasked with designing a liquid-bipropellant launch vehicle targeting a collegiate altitude record. The mission profile demanded a ruggedized avionics suite capable of surviving high-vibration ascent and extreme G-forces. My role focused on the physical ruggedization of the electronics and the integrity of the data acquisition systems.", bullets: ["Electro-Mechanical Packaging: Utilized SolidWorks to model and simulate the Avionics (AV) Bulkhead, designing custom 3D-printed circuit mounts and retention brackets to secure hardware against flight loads.", "Data Acquisition (DAQ) Hardware: Integrated sensor board components for mission-critical telemetry, specifically architecting the localized SD Memory Card interface to ensure redundant, non-volatile flight data storage.", "Interconnect Design: Engineered the wire harness routing and connectorization strategy, ensuring secure locking mechanisms for all avionics and fittings to prevent disconnection during stage separation or chute deployment."], imageCaption: "Full liquid-bipropellant rocket CAD render + avionics packaging, DAQ hardware, and interconnect design infographic" },
-            { id: 3, title: "Moon Bounce (EME) Signal Transmission", category: "RF", image: "moonbounce1.jpg", description: "Designed and implemented a high-frequency radio system capable of transmitting signals to the lunar surface and capturing the reflection. This 'Moon Bounce' project presented a massive link-budget challenge, requiring the system to overcome significant free-space path loss (approx. 250dB) and atmospheric attenuation over a 477,000-mile round trip. As the Hardware Team Lead, I oversaw the end-to-end development of the transmission chain, from signal generation to antenna radiation.", bullets: ["RF Hardware Leadership: Directed a multidisciplinary team in the component selection and integration of high-gain antennas, low-noise amplifiers (LNAs), and power amplifiers to ensure link viability.", "Signal Integrity Verification: Conducted rigorous validation testing using spectrum analyzers and oscilloscopes to characterize noise figures and minimize insertion loss across connectors and cabling.", "Link Budget Analysis: Calculated theoretical signal-to-noise ratios (SNR) and required gain, adjusting hardware parameters to compensate for Doppler shift and polarization mismatch.", "System Integration: Managed the physical interface between the digital signal processing unit and the analog RF front end, ensuring impedance matching to protect sensitive hardware from reflection damage."], imageCaption: "Earth-Moon-Earth (EME) transmission chain diagram + team poster presentation" },
-            { id: 4, title: "Solar Airplane Avionics & Propulsion Analysis", category: "Aerospace", image: "avionics1.png", description: "As a key member of the Propulsion sub-team for the 2024-2025 Solar Airplane project, I was responsible for the end-to-end design and integration of the aircraft's avionics suite. My primary focus was on optimizing the energy balance between solar generation and propulsion consumption. I led the testing and analysis efforts, which involved rigorous characterization of solar panel efficiency relative to aerodynamic drag. Using Python/MATLAB, I modeled complex datasets—including drag pressure vs. velocity and power-output efficiency—to inform critical engineering decisions regarding motor and propeller selection.", bullets: ["Data-Driven Optimization: I learned to quantify the trade-offs in aerospace design, specifically how to analyze the correlation between increased drag from solar panels and the resulting electrical power gain to determine net efficiency.", "Advanced Diagnostics: I gained expertise in performing 'hardware-in-the-loop' style analysis during manufacturing, ensuring that theoretical energy calculations matched real-world avionics performance under load.", "Statistical Modeling in Engineering: The project refined my ability to generate and interpret correlation matrices and efficiency plots, transforming raw flight data into actionable insights for aerodynamic refinements.", "Systems Integration: I deepened my understanding of how propulsion subsystems (avionics and energy) must be tightly integrated with airframe aerodynamics to achieve sustained flight."], imageCaption: "Solar airplane avionics system diagram + detailed performance graphs (drag vs. power, thrust vs. power)" },
-            { id: 5, title: "High-Altitude Environmental Research", category: "Payload", image: "balloon1.jpg", description: "Engineered a comprehensive sensor payload designed to operate in the near-space environment (target altitude: 31,000 meters). As the sole engineer, I executed the full development lifecycle—from defining mission requirements and thermal modeling to physical construction and sensor integration. The system is currently a fully operational, flight-ready prototype awaiting a launch window.", bullets: ["End-to-End Systems Integration: Designed the complete electrical and mechanical architecture, successfully integrating power management, data logging, and audio/visual recording subsystems into a cohesive payload.", "Environmental Hardening: Developed a passive thermal management strategy to protect sensitive electronics from stratospheric temperatures (approx. -60°C) and vacuum conditions.", "Mission Planning & Simulation: Utilized predictive modeling software to calculate flight trajectories and landing zones based on wind patterns, determining optimal launch windows to ensure payload recovery.", "Instrumentation & Calibration: Calibrated a multi-sensor suite (CO2, humidity, pressure) for high-fidelity data collection, conducting Hardware-in-the-Loop (HIL) testing to verify system survival under simulated flight stress."], imageCaption: "High-altitude balloon launch in the desert with sensor payload – full field setup and electronics close-ups included" },
-            { id: 6, title: "Sensor-Integrated Autonomous Rover", category: "Rover", image: "rover1.png", description: "Collaborated within a 6-person engineering team to prototype a robotic vehicle aimed at autonomous search-and-retrieval tasks. The project required the seamless integration of mechanical chassis constraints with electrical hardware. My primary focus was bridging the gap between hardware inputs and software outputs, ensuring the robot could physically react to sensor data with low latency.", bullets: ["Hardware Implementation: Designed the wiring harness and circuit topology to connect actuators and sensors to the central microcontroller, ensuring robust connections for mobile operation.", "Real-Time Data Processing: Programmed the microcontroller to continuously poll sensor arrays, translating raw voltage signals into steering commands for the differential drive system.", "Actuator Control: Implemented Pulse Width Modulation (PWM) drivers to control motor speed and torque, fine-tuning the parameters to handle varying surface friction during the wall-following tests.", "Testing & Validation: Conducted isolated unit tests for each navigation mode (Line, Wall, Retrieval) to debug code logic before full system integration, achieving a 100% success rate in final trials."], imageCaption: "Autonomous sensor-integrated rover with Arduino, PID controller, IR/ultrasonic/color sensors (wiring close-ups included)" },
-            { id: 7, title: "Electromagnetic Levitation Device", category: "Personal", image: "levitation1.jpg", description: "Built a custom 'Maglev' platform from scratch to explore the practical application of electromagnetism and sensor feedback. This personal project involved sourcing components, fabricating the structural frame, and hand-wiring the control circuitry to balance a levitating magnet against the force of gravity.", bullets: ["Circuit Fabrication: Prototyped the control circuit on a breadboard before migrating to a permanent soldered solution, troubleshooting noise issues in the sensor lines along the way.", "Electromechanical Design: Wound custom electromagnets to achieve the specific magnetic flux density required to lift the target payload weight.", "Real-Time Signal Processing: Created a circuit capable of reading sensor voltage changes and adjusting the electromagnet's duty cycle/current instantaneously to prevent the object from falling or snapping to the magnet.", "Thermal Management: Managed the heat dissipation of the solenoid and driver transistors during prolonged operation."], imageCaption: "DIY electromagnetic levitation device – physical wooden frame with coils, CAD schematic, and full circuit diagram" },
-            { id: 8, title: "Pneumatic Autonomous Rover", category: "Rover", image: "car1.png", description: "A UCI MAE 106 class project which consisted of three group members including me. An autonomous rover designed to follow a path with a pneumatic cylinder as its driving force. We completed and got full credit on the project by getting 40 points in the competition.", bullets: ["I did the coding and helped with the making of the electrical system of the rover.", "I learned how to use a magnetic sensor, reed switch, and actuators to steer and drive the rover in the right direction using a hybrid loop control method for the arduino code."], imageCaption: "Pneumatic autonomous rover with cylinder drive mechanism" },
-            { id: 9, title: "Cargo Plane", category: "Aircraft", image: "plane1.jpg", description: "A UCI engineering project class made up of a large team including me during the year 2021-2022. A remote controlled plane that carries a cargo of objects that is designed for a competition. We did not finish it in time for the competition, but it was mostly completed. We just needed to finish the manufacturing.", bullets: ["I was on the avionics and design team of the project.", "I learned many aspects of designing a RC cargo plane like how to pick the airfoil of the plane and how to determine the initial dimensions of the plane.", "Also, I learned how to pick the electrical parts that were needed for the plane and how to design the tail flap mechanism of the plane."], imageCaption: "3D render of the high-wing cargo plane" },
-            { id: 10, title: "Home Alarm System", category: "Embedded", image: "alarm1.jpg", description: "Hooked up my parents’ home’s old wired alarm system to a new wireless alarm system through an arduino.", bullets: ["I designed and made the circuit and code all by myself.", "It worked and my parent’s home has been using this system for about a year now.", "I learned many aspects of circuitry and coding through this project like wiring, voltage dividers, and coding an arduino script."], imageCaption: "Home alarm system wiring and Arduino integration – battery backup and sensor connections (close-up views also included)" },
-            { id: 11, title: "Power Saving Machine Learning Plug", category: "Embedded", image: "powerdevice1.jpg", description: "A final project for my PLTW high school engineering class. This project was reviewed by engineers and was completed by a team of three people including me. A plug for a household wall outlet to save power on any common electronic plugged in item. It uses a machine learning algorithm to remember your pattern of turning an electronic item on and off and uses that algorithm after a certain period of learning time to save power by turning the item on or off in sequence with the learned pattern.", bullets: ["I designed and built the electrical portion of this project.", "I learned many aspects from this project like how basic machine learning code works, what basic electrical components to use and what they are, and the fundamentals of AC power."], imageCaption: "Power saving smart plug prototype" },
-            { id: 12, title: "RC Rover", category: "Rover", image: "https://picsum.photos/id/201/1200/800", description: "My UCI ENGR 7A class project made by a team of four undergraduates including me. A basic remote controlled rover with four wheels. The project got our team 2nd place out of the whole class.", bullets: ["I helped the designing and building of the electrical system and hardware components.", "I learned how to CAD pretty well, the mechanical aspects of the rover like the gear ratio and torque, and how to pick the electrical components that we needed like the capacity of the battery and such."], imageCaption: "Remote-controlled four-wheel rover" },
-            { id: 13, title: "RC Plane", category: "Aircraft", image: "https://picsum.photos/id/301/1200/800", description: "A delta/flying wing remote controlled plane. Built from common hobby electronics, other hobby materials, and poster and foam board.", bullets: ["I designed and built the plane all by myself.", "I learned many aspects of building an RC plane like center of mass and center of gravity, how a plane creates lift and flies, and the fundamental forces of a plane."], imageCaption: "Delta/flying wing RC plane built from hobby materials" }
+            { 
+                id: 1, 
+                title: "Analog Circuit Design & Amplifier Development", 
+                category: "Electronics", 
+                image: "board1.jpg", 
+                description: "Executed the full-cycle design and fabrication of a custom multi-stage amplifier using discrete transistors. Unlike pre-packaged IC solutions, this project required a 'first-principles' approach.", 
+                bullets: [
+                    "Circuit Topology Design: Selected and configured amplifier stages to optimize voltage gain and output swing.",
+                    "Component Level Calculation: Manually calculated bias resistor networks and coupling capacitor values.",
+                    "Stability Analysis: Diagnosed and mitigated parasitic oscillations during breadboarding.",
+                    "Performance Verification: Measured key metrics using oscilloscopes and signal generators."
+                ], 
+                imageCaption: "Multi-stage transistor amplifier prototype on the bench" 
+            },
+            { 
+                id: 2, 
+                title: "Rocket Electrical Systems & Avionics (Senior Capstone)", 
+                category: "Rocket", 
+                image: "usb.png", 
+                description: "Served as a key engineer for a multidisciplinary team tasked with designing a liquid-bipropellant launch vehicle targeting a collegiate altitude record.", 
+                bullets: [
+                    "Electro-Mechanical Packaging: Designed custom 3D-printed circuit mounts in SolidWorks.",
+                    "Data Acquisition (DAQ) Hardware: Integrated sensor board components with redundant SD card logging.",
+                    "Interconnect Design: Engineered wire harness routing to survive stage separation."
+                ], 
+                imageCaption: "Full liquid-bipropellant rocket CAD render + avionics packaging" 
+            },
+            { 
+                id: 3, 
+                title: "Moon Bounce (EME) RF Communication System", 
+                category: "RF", 
+                image: "moonbounce1.jpg", 
+                description: "Designed and implemented a high-frequency radio system capable of transmitting signals to the lunar surface and capturing the reflection over a 477,000-mile round trip.", 
+                bullets: [
+                    "RF Hardware Leadership: Directed component selection of high-gain antennas, LNAs, and power amplifiers.",
+                    "Signal Integrity Verification: Characterized noise figures using spectrum analyzers.",
+                    "Link Budget Analysis: Calculated theoretical SNR and adjusted hardware parameters."
+                ], 
+                imageCaption: "Earth-Moon-Earth (EME) transmission chain diagram" 
+            },
+            { 
+                id: 4, 
+                title: "Solar Airplane Avionics & Propulsion Analysis", 
+                category: "Aerospace", 
+                image: "avionics1.png", 
+                description: "Led the propulsion sub-team in designing and integrating circuit diagrams, specifically focusing on the optimization of motor/propeller selection relative to solar panel power generation.", 
+                bullets: [
+                    "Data-Driven Optimization: Modeled drag vs power trade-offs using Python/MATLAB.",
+                    "Advanced Diagnostics: Performed hardware-in-the-loop testing during manufacturing.",
+                    "Statistical Modeling: Generated correlation matrices and efficiency plots from flight data."
+                ], 
+                imageCaption: "Solar airplane avionics system diagram + performance graphs" 
+            },
+            { 
+                id: 5, 
+                title: "High-Altitude Environmental Research", 
+                category: "Payload", 
+                image: "balloon1.jpg", 
+                description: "Engineered a comprehensive sensor payload designed to operate in the near-space environment (target altitude: 31,000 meters).", 
+                bullets: [
+                    "End-to-End Systems Integration: Designed complete electrical and mechanical architecture.",
+                    "Environmental Hardening: Developed passive thermal management for -60°C conditions.",
+                    "Instrumentation & Calibration: Calibrated multi-sensor suite for high-fidelity data collection."
+                ], 
+                imageCaption: "High-altitude balloon launch in the desert with sensor payload" 
+            },
+            { 
+                id: 6, 
+                title: "Sensor-Integrated Autonomous Rover", 
+                category: "Rover", 
+                image: "rover1.png", 
+                description: "Collaborated within a 6-person engineering team to prototype a robotic vehicle aimed at autonomous search-and-retrieval tasks.", 
+                bullets: [
+                    "Hardware Implementation: Designed wiring harness and circuit topology.",
+                    "Real-Time Data Processing: Programmed microcontroller to translate sensor signals into steering commands.",
+                    "Testing & Validation: Achieved 100% success rate in final navigation trials."
+                ], 
+                imageCaption: "Autonomous sensor-integrated rover with Arduino and PID controller" 
+            },
+            { 
+                id: 7, 
+                title: "Electromagnetic Levitation Device", 
+                category: "Personal", 
+                image: "levitation1.jpg", 
+                description: "Built a custom 'Maglev' platform from scratch to explore the practical application of electromagnetism and sensor feedback.", 
+                bullets: [
+                    "Circuit Fabrication: Prototyped control circuit and migrated to permanent soldered solution.",
+                    "Electromechanical Design: Wound custom electromagnets for required magnetic flux density.",
+                    "Real-Time Signal Processing: Created circuit for instantaneous electromagnet adjustment."
+                ], 
+                imageCaption: "DIY electromagnetic levitation device with wooden frame and coils" 
+            },
+            { 
+                id: 8, 
+                title: "Pneumatic Autonomous Rover", 
+                category: "Rover", 
+                image: "car1.png", 
+                description: "A UCI MAE 106 class project. An autonomous rover designed to follow a path with a pneumatic cylinder as its driving force.", 
+                bullets: [
+                    "I did the coding and helped with the making of the electrical system of the rover.",
+                    "I learned how to use a magnetic sensor, reed switch, and actuators using hybrid loop control."
+                ], 
+                imageCaption: "Pneumatic autonomous rover with cylinder drive mechanism" 
+            },
+            { 
+                id: 9, 
+                title: "Cargo Plane", 
+                category: "Aircraft", 
+                image: "plane1.jpg", 
+                description: "A UCI engineering project class. A remote controlled plane that carries cargo for a competition.", 
+                bullets: [
+                    "I was on the avionics and design team.",
+                    "Learned airfoil selection, initial dimensions, electrical components, and tail flap mechanism design."
+                ], 
+                imageCaption: "3D render of the high-wing cargo plane" 
+            },
+            { 
+                id: 10, 
+                title: "Home Alarm System", 
+                category: "Embedded", 
+                image: "alarm1.jpg", 
+                description: "Hooked up my parents’ old wired alarm system to a new wireless alarm system through an Arduino.", 
+                bullets: [
+                    "I designed and made the circuit and code all by myself.",
+                    "The system has been in daily use for over a year."
+                ], 
+                imageCaption: "Home alarm system wiring and Arduino integration" 
+            },
+            { 
+                id: 11, 
+                title: "Power Saving Machine Learning Plug", 
+                category: "Embedded", 
+                image: "powerdevice1.jpg", 
+                description: "A final project for my PLTW high school engineering class. A smart plug that uses machine learning to remember usage patterns and save power.", 
+                bullets: [
+                    "I designed and built the electrical portion of this project.",
+                    "Learned basic machine learning code, electrical components, and AC power fundamentals."
+                ], 
+                imageCaption: "Power saving smart plug prototype" 
+            },
+            { 
+                id: 12, 
+                title: "RC Rover", 
+                category: "Rover", 
+                image: "https://picsum.photos/id/201/1200/800", 
+                description: "My UCI ENGR 7A class project. A basic remote controlled rover with four wheels that won 2nd place.", 
+                bullets: [
+                    "I helped with the electrical system and hardware components.",
+                    "Learned CAD, gear ratio, torque, and battery capacity selection."
+                ], 
+                imageCaption: "Remote-controlled four-wheel rover" 
+            },
+            { 
+                id: 13, 
+                title: "RC Plane (Delta Wing)", 
+                category: "Aircraft", 
+                image: "https://picsum.photos/id/301/1200/800", 
+                description: "A delta/flying wing remote controlled plane built from common hobby electronics and foam board.", 
+                bullets: [
+                    "I designed and built the plane all by myself.",
+                    "Learned center of mass, lift generation, and fundamental forces of flight."
+                ], 
+                imageCaption: "Delta/flying wing RC plane" 
+            }
         ];
-
+        
+        // Render Projects
         function renderProjects() {
             const grid = document.getElementById('projectGrid');
             grid.innerHTML = '';
+            
             projectsData.forEach(project => {
-                const cardHTML = `<div onclick="openProjectModal(${project.id})" class="project-card cursor-pointer bg-[#112a4a] rounded-3xl overflow-hidden group"><div class="h-60 relative"><img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-105"><div class="absolute top-4 right-4 bg-black/70 text-xs px-3 py-1 rounded-3xl">${project.category}</div></div><div class="p-6"><h3 class="heading-font text-2xl mb-2">${project.title}</h3><p class="line-clamp-3 text-white/70 text-sm">${project.description}</p><div class="mt-6 flex justify-between items-center text-[#00d4ff] text-xs font-medium"><span>VIEW DETAILS + PHOTOS</span><i class="fa-solid fa-arrow-right group-active:rotate-45"></i></div></div></div>`;
-                grid.innerHTML += cardHTML;
+                const card = document.createElement('div');
+                card.className = `project-card bg-[#112a4a] rounded-3xl overflow-hidden cursor-pointer group`;
+                card.innerHTML = `
+                    <div class="h-60 relative">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-black/70 text-xs px-3 py-1 rounded-3xl">${project.category}</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl mb-2">${project.title}</h3>
+                        <p class="line-clamp-3 text-white/70 text-sm">${project.description}</p>
+                        <div class="mt-6 flex justify-between items-center text-[#00d4ff] text-xs font-medium">
+                            <span>VIEW DETAILS</span>
+                            <i class="fa-solid fa-arrow-right group-active:rotate-45"></i>
+                        </div>
+                    </div>
+                `;
+                card.onclick = () => openProjectModal(project.id);
+                grid.appendChild(card);
             });
         }
-
+        
+        // Open Project Modal
         function openProjectModal(id) {
             const project = projectsData.find(p => p.id === id);
             if (!project) return;
-            const modal = document.getElementById('projectModal');
-            const content = document.getElementById('modalContent');
-            const titleEl = document.getElementById('modalTitle');
-            titleEl.textContent = project.title;
-            let bulletsHTML = project.bullets.map(b => `<li class="flex items-start gap-x-3"><span class="text-[#00d4ff] mt-1 text-lg">•</span><span class="leading-relaxed">${b}</span></li>`).join('');
-            content.innerHTML = `
-                <div class="grid md:grid-cols-12 gap-10">
-                    <div class="md:col-span-5">
-                        <img src="${project.image}" alt="${project.title}" class="rounded-3xl shadow-inner w-full">
-                        <p class="text-xs text-white/50 mt-6 italic">${project.imageCaption}</p>
-                    </div>
-                    <div class="md:col-span-7 space-y-10">
-                        <p class="text-lg leading-relaxed">${project.description}</p>
-                        <div>
-                            <h5 class="font-medium text-[#00d4ff] mb-6 flex items-center text-xl"><i class="fa-solid fa-lightbulb mr-3"></i>WHAT I LEARNED &amp; DID</h5>
-                            <ul class="space-y-5 text-base">${bulletsHTML}</ul>
+            
+            const modalHTML = `
+                <div onclick="closeModal()" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-[99999] flex items-center justify-center p-4">
+                    <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a1428] max-w-5xl w-full max-h-[90vh] overflow-auto rounded-3xl shadow-2xl">
+                        <div class="sticky top-0 bg-[#0a1428] border-b border-white/10 px-8 py-5 flex justify-between items-center z-10">
+                            <h3 class="heading-font text-3xl">${project.title}</h3>
+                            <button onclick="closeModal()" class="text-3xl text-white/60 hover:text-white">✕</button>
                         </div>
-                        <div class="pt-8 border-t border-white/10 flex justify-end">
-                            <button onclick="closeModal()" class="px-10 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">CLOSE PROJECT</button>
+                        
+                        <div class="p-8 grid md:grid-cols-5 gap-8">
+                            <div class="md:col-span-2">
+                                <img src="${project.image}" alt="${project.title}" class="rounded-3xl shadow-inner w-full">
+                                <p class="text-xs text-white/50 mt-4 italic">${project.imageCaption}</p>
+                            </div>
+                            
+                            <div class="md:col-span-3 space-y-8">
+                                <p class="text-lg">${project.description}</p>
+                                
+                                <div>
+                                    <h5 class="font-medium text-[#00d4ff] mb-4 flex items-center">
+                                        <i class="fa-solid fa-lightbulb mr-2"></i> WHAT I LEARNED & DID
+                                    </h5>
+                                    <ul class="space-y-4 text-sm">
+                                        ${project.bullets.map(b => `
+                                            <li class="flex items-start gap-x-3">
+                                                <span class="text-[#00d4ff] mt-1">•</span>
+                                                <span>${b}</span>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sticky bottom-0 bg-[#0a1428] border-t border-white/10 p-6 flex justify-end">
+                            <button onclick="closeModal()" class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">CLOSE PROJECT</button>
                         </div>
                     </div>
-                </div>`;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
             document.body.style.overflow = 'hidden';
         }
-
+        
         function closeModal() {
-            const modal = document.getElementById('projectModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            const modal = document.querySelector('.fixed.inset-0.bg-black\\/80');
+            if (modal) modal.remove();
             document.body.style.overflow = 'visible';
         }
-
-        function navigateToSection(section) {
-            const el = document.getElementById(section);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        
+        // Copy Email
+        function copyEmail() {
+            navigator.clipboard.writeText('michaelzyburt@gmail.com').then(() => {
+                const originalText = event.currentTarget ? event.currentTarget.innerHTML : '';
+                const btns = document.querySelectorAll('button');
+                btns.forEach(btn => {
+                    if (btn.innerHTML.includes('Get in Touch')) {
+                        const original = btn.innerHTML;
+                        btn.innerHTML = '✅ COPIED!';
+                        setTimeout(() => btn.innerHTML = original, 2000);
+                    }
+                });
+            });
         }
-
+        
+        // Mobile Menu
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+            const menu = document.createElement('div');
+            menu.className = 'fixed inset-0 bg-black/90 z-[99999] flex items-center justify-center md:hidden';
+            menu.innerHTML = `
+                <div class="text-center space-y-8 text-2xl">
+                    <a href="#about" class="block">About</a>
+                    <a href="#skills" class="block">Skills</a>
+                    <a href="#projects" class="block">Projects</a>
+                    <a href="#education" class="block">Education</a>
+                    <button onclick="this.closest('.fixed').remove()" class="mt-8 text-sm text-white/60">CLOSE</button>
+                </div>
+            `;
+            document.body.appendChild(menu);
         }
-
-        function copyContact() {
-            const email = "michaelzyburt@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const footer = document.getElementById('footerEmail');
-                footer.innerHTML = `✅ <span class="font-medium">COPIED!</span>`;
-                setTimeout(() => { footer.innerHTML = `${email} <span class="text-xs">(click to copy)</span>`; }, 2200);
-            });
+        
+        // Chatbot Variables
+        let chatOpen = false;
+        let voiceEnabled = true;
+        let recognition = null;
+        let isListening = false;
+        
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            chatOpen = !chatOpen;
+            win.style.display = chatOpen ? 'flex' : 'none';
+            
+            if (chatOpen && document.getElementById('chat-messages').children.length === 0) {
+                setTimeout(() => {
+                    addBotMessage("Hi! I'm Michael's AI assistant. I can tell you about his projects, education, skills, or anything else. What would you like to know?");
+                }, 300);
+            }
         }
-
-        function initScrollProgress() {
-            const progressBar = document.getElementById('scrollProgress');
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = (scrollTop / docHeight) * 100;
-                progressBar.style.setProperty('--scroll', `${scrollPercent}%`);
-            });
+        
+        function addBotMessage(text) {
+            const container = document.getElementById('chat-messages');
+            const msg = document.createElement('div');
+            msg.className = 'message bot-message';
+            msg.innerHTML = text;
+            container.appendChild(msg);
+            container.scrollTop = container.scrollHeight;
+            
+            // Speak if voice enabled
+            if (voiceEnabled && 'speechSynthesis' in window) {
+                setTimeout(() => {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.rate = 1.05;
+                    utterance.pitch = 1.1;
+                    window.speechSynthesis.speak(utterance);
+                }, 300);
+            }
         }
-
+        
+        function addUserMessage(text) {
+            const container = document.getElementById('chat-messages');
+            const msg = document.createElement('div');
+            msg.className = 'message user-message';
+            msg.textContent = text;
+            container.appendChild(msg);
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chat-input-field');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            addUserMessage(text);
+            input.value = '';
+            
+            setTimeout(() => {
+                const reply = getBotResponse(text);
+                addBotMessage(reply);
+            }, 650);
+        }
+        
+        function getBotResponse(query) {
+            const q = query.toLowerCase();
+            
+            if (q.includes('rocket') || q.includes('avionics')) {
+                return "For the Rocket project, Michael was the key avionics engineer. He designed the AV bulkhead, integrated DAQ hardware with redundant SD card logging, and engineered interconnects that survived stage separation. The team aimed for a collegiate altitude record!";
+            }
+            if (q.includes('solar') || q.includes('airplane')) {
+                return "On the Solar Airplane, Michael led propulsion analysis. He used Python/MATLAB to model drag-vs-power trade-offs from the solar panels and helped select the optimal motor/propeller combination for maximum endurance.";
+            }
+            if (q.includes('balloon') || q.includes('high-altitude')) {
+                return "The High-Altitude Environmental Research payload was a solo project reaching 31 km. Michael handled thermal modeling, sensor calibration for CO₂, pressure, and humidity in near-vacuum conditions, plus video/audio recording.";
+            }
+            if (q.includes('levitation') || q.includes('maglev')) {
+                return "Michael's Electromagnetic Levitation Device uses real-time sensor feedback to keep a magnet floating in mid-air. He wound custom electromagnets and solved thermal and noise challenges — pure hands-on physics and electronics!";
+            }
+            if (q.includes('project') || q.includes('projects')) {
+                return "Michael has completed 13 engineering projects! Highlights include the Solar Airplane, Rocket Avionics, High-Altitude Balloon, multiple autonomous rovers, Cargo Plane, and a Power-Saving ML Plug. Which one interests you?";
+            }
+            if (q.includes('education') || q.includes('degree') || q.includes('uci')) {
+                return "Michael holds BS degrees in both Aerospace and Electrical Engineering from UC Irvine (2024) and is currently pursuing his MS in Electrical Engineering there (expected June 2026).";
+            }
+            if (q.includes('skill') || q.includes('skills')) {
+                return "His core skills include MATLAB/Python/C++, SolidWorks, PCB design & advanced soldering, PID control systems, RF hardware, and rigorous testing with oscilloscopes and environmental chambers.";
+            }
+            if (q.includes('contact') || q.includes('email')) {
+                return "You can reach Michael at michaelzyburt@gmail.com or connect on LinkedIn. He's always open to new opportunities in avionics and embedded systems!";
+            }
+            if (q.includes('fun') || q.includes('fact')) {
+                return "Fun fact: Michael's electromagnetic levitation device can balance a magnet indefinitely using only analog electronics and clever feedback control. No microcontrollers — just pure hardware engineering!";
+            }
+            if (q.includes('hello') || q.includes('hi')) {
+                return "Hello! Welcome to Michael's portfolio. I'm here to answer questions about his work. What would you like to explore?";
+            }
+            
+            return "Great question! For the deepest details I recommend checking the project cards on the site or emailing Michael directly. Is there a specific project or skill you'd like to dive into?";
+        }
+        
+        // Voice Functions
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            const icon = document.getElementById('voice-icon');
+            const btn = document.getElementById('voice-toggle');
+            
+            if (voiceEnabled) {
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+                btn.classList.remove('active');
+            } else {
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+                btn.classList.add('active');
+            }
+        }
+        
+        function initSpeechRecognition() {
+            if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+                return;
+            }
+            
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+            
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('chat-input-field').value = transcript;
+                sendMessage();
+                stopListening();
+            };
+            
+            recognition.onerror = function() {
+                stopListening();
+                addBotMessage("Sorry, I couldn't hear you clearly. Please try again.");
+            };
+            
+            recognition.onend = stopListening;
+        }
+        
+        let isListening = false;
+        
+        function startListening() {
+            if (!recognition) {
+                addBotMessage("Voice input is not supported in your browser. Please type instead.");
+                return;
+            }
+            
+            const micBtn = document.getElementById('mic-btn');
+            
+            try {
+                recognition.start();
+                isListening = true;
+                micBtn.classList.add('listening');
+                micBtn.innerHTML = '<i class="fa-solid fa-microphone-slash"></i>';
+            } catch (e) {
+                addBotMessage("Could not start voice input. Please check microphone permissions.");
+            }
+        }
+        
+        function stopListening() {
+            const micBtn = document.getElementById('mic-btn');
+            if (micBtn) {
+                micBtn.classList.remove('listening');
+                micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+            }
+            isListening = false;
+        }
+        
+        function initializeChatbot() {
+            // Add initial message when chat opens
+            const originalToggle = window.toggleChat || function(){};
+            window.toggleChat = function() {
+                originalToggle();
+                setTimeout(() => {
+                    if (document.getElementById('chat-window').style.display === 'flex' && 
+                        document.getElementById('chat-messages').children.length === 0) {
+                        addBotMessage("Hi! I'm Michael's AI assistant. Ask me anything about his projects or experience!");
+                    }
+                }, 200);
+            };
+            
+            // Initialize speech recognition
+            setTimeout(() => {
+                if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                    initSpeechRecognition();
+                }
+            }, 1000);
+            
+            // Load voices
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.getVoices();
+            }
+        }
+        
+        // Initialize everything
         function launchWebsite() {
             initializeTailwind();
             renderProjects();
-            initScrollProgress();
-            console.log('%c✅ COMPLETE WEBSITE LOADED - All sections & modal now display correctly', 'background:#00d4ff;color:#0a1428;font-weight:bold;padding:2px 8px;border-radius:4px');
+            initializeChatbot();
+            
+            console.log('%c✅ Portfolio with Talking AI Chatbot loaded successfully!', 'color:#00d4ff');
         }
-/* ========== CHATBOT LOGIC ========== */
-let chatOpen = false;
-
-function toggleChat() {
-  const win = document.getElementById('chat-window');
-  chatOpen = !chatOpen;
-  win.style.display = chatOpen ? 'flex' : 'none';
-
-  if (chatOpen && document.getElementById('chat-messages').children.length === 0) {
-    setTimeout(() => {
-      addBotMessage("Hi! I'm Michael's AI assistant. I can tell you about his projects, education, skills, or anything else on the site. What would you like to know?");
-    }, 300);
-  }
-}
-
-function addBotMessage(text) {
-  const container = document.getElementById('chat-messages');
-  const msg = document.createElement('div');
-  msg.className = 'message bot-message';
-  msg.innerHTML = text;
-  container.appendChild(msg);
-  container.scrollTop = container.scrollHeight;
-}
-
-function addUserMessage(text) {
-  const container = document.getElementById('chat-messages');
-  const msg = document.createElement('div');
-  msg.className = 'message user-message';
-  msg.textContent = text;
-  container.appendChild(msg);
-  container.scrollTop = container.scrollHeight;
-}
-
-function sendMessage() {
-  const input = document.getElementById('chat-input-field');
-  const text = input.value.trim();
-  if (!text) return;
-
-  addUserMessage(text);
-  input.value = '';
-
-  setTimeout(() => {
-    const reply = getBotResponse(text);
-    addBotMessage(reply);
-  }, 650);
-}
-
-function getBotResponse(query) {
-  const q = query.toLowerCase().trim();
-
-  // Specific project questions first
-  if (q.includes('rocket') || q.includes('avionics') || q.includes('capstone')) {
-    return "For the Rocket Electrical Systems project, Michael was the key avionics engineer. He designed the AV bulkhead in SolidWorks, integrated DAQ hardware with redundant SD card logging, and engineered robust interconnects that survived stage separation and chute deployment. The team aimed for a collegiate altitude record!";
-  }
-  if (q.includes('solar') || q.includes('airplane') || q.includes('propulsion')) {
-    return "On the Solar Airplane, Michael led propulsion analysis. He used Python and MATLAB to model drag-vs-power trade-offs from the solar panels, ran hardware-in-the-loop tests, and helped select the optimal motor/propeller combination for maximum endurance.";
-  }
-  if (q.includes('balloon') || q.includes('high-altitude') || q.includes('payload')) {
-    return "The High-Altitude Environmental Research payload was a solo project reaching 31 km. Michael handled thermal modeling, sensor calibration (CO₂, pressure, humidity), passive cooling for -60°C conditions, and full systems integration including video/audio recording.";
-  }
-  if (q.includes('levitation') || q.includes('maglev') || q.includes('electromagnetic')) {
-    return "Michael's Electromagnetic Levitation Device uses real-time sensor feedback to keep a magnet floating in mid-air. He wound custom electromagnets, built the analog control circuit, and solved thermal and noise challenges — pure hands-on physics and electronics!";
-  }
-
-  // General topics
-  if (q.includes('project') || q.includes('projects')) {
-    return "Michael has completed 13 engineering projects! Highlights include the Solar Airplane, Rocket Avionics, High-Altitude Balloon, multiple autonomous rovers (sensor, pneumatic, RC), Cargo Plane, Home Alarm System, and a Power-Saving ML Plug. Which one would you like details on?";
-  }
-  if (q.includes('education') || q.includes('degree') || q.includes('uci') || q.includes('college')) {
-    return "Michael holds BS degrees in both Aerospace Engineering and Electrical Engineering from UC Irvine (2024) and is currently pursuing his MS in Electrical Engineering there (expected June 2026). Double major + master's — serious dedication!";
-  }
-  if (q.includes('skill') || q.includes('skills') || q.includes('technical')) {
-    return "Core strengths: MATLAB/Python/C++, SolidWorks, PCB design & advanced soldering, PID controllers, RF systems, wire harness design, battery characterization, and rigorous environmental testing. He loves turning ideas into flight-ready hardware.";
-  }
-  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('hire')) {
-    return "You can reach Michael directly at <strong>michaelzyburt@gmail.com</strong> or connect on LinkedIn: <a href='http://www.linkedin.com/in/michael-zyburt-' target='_blank' class='underline'>linkedin.com/in/michael-zyburt-</a>. He's open to avionics, embedded systems, and aerospace opportunities!";
-  }
-  if (q.includes('fun') || q.includes('fact') || q.includes('cool') || q.includes('interesting')) {
-    return "Fun fact: Michael's electromagnetic levitation device can balance a magnet indefinitely using only analog electronics and clever feedback control. No fancy microcontrollers — just pure hardware engineering!";
-  }
-  if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('greet')) {
-    return "Hello! Welcome to Michael's portfolio. I'm here to answer questions about his work, background, or any of the 13 projects. What would you like to explore first?";
-  }
-
-  // Fallback
-  return "That's a great question! While I have deep knowledge of all projects and Michael's background, for the most detailed answers I recommend checking the specific project cards or emailing him directly. Is there a particular area (rockets, solar, rovers, etc.) you'd like me to focus on?";
-}
-
-/* Initialize chat on first open is handled in toggleChat() */
-
+        
         window.onload = launchWebsite;
     </script>
-<!-- FLOATING CHATBOT WIDGET -->
-<div id="chat-widget">
-  <!-- Chat Button -->
-  <div onclick="toggleChat()" class="chat-button" title="Chat with Michael's AI Assistant">
-    <i class="fa-solid fa-robot"></i>
-  </div>
-
-  <!-- Chat Window -->
-  <div id="chat-window" class="chat-window">
-    <!-- Header -->
-    <div class="chat-header">
-      <div class="flex items-center gap-x-3">
-        <div class="w-9 h-9 bg-gradient-to-br from-[#00d4ff] to-[#00a8cc] rounded-2xl flex items-center justify-center text-[#0a1428] shadow-inner">
-          <i class="fa-solid fa-robot text-xl"></i>
-        </div>
-        <div>
-          <div class="font-semibold text-white tracking-tight">Portfolio Assistant</div>
-          <div class="text-[10px] text-[#00d4ff] flex items-center gap-x-1.5">
-            <span class="inline-block w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse"></span>
-            ONLINE • AI POWERED
-          </div>
-        </div>
-      </div>
-      <button onclick="toggleChat()" class="text-white/60 hover:text-white text-2xl leading-none px-1">×</button>
-    </div>
-
-    <!-- Messages -->
-    <div id="chat-messages" class="chat-messages"></div>
-
-    <!-- Input -->
-    <div class="chat-input">
-      <input type="text" id="chat-input-field" placeholder="Ask about projects, skills, or experience..." 
-             onkeypress="if (event.key === 'Enter') sendMessage()">
-      <button onclick="sendMessage()" title="Send message">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
