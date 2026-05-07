@@ -825,12 +825,31 @@
             container.appendChild(msg);
             container.scrollTop = container.scrollHeight;
             
-            // Speak if voice enabled
+            // Speak if voice enabled (fun natural male voice)
             if (voiceEnabled && 'speechSynthesis' in window) {
                 setTimeout(() => {
                     const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.rate = 1.05;
-                    utterance.pitch = 1.1;
+                    
+                    // Try to find a fun, natural-sounding male voice
+                    const voices = window.speechSynthesis.getVoices();
+                    const maleVoice = voices.find(v => 
+                        v.name.includes('Daniel') || 
+                        v.name.includes('Alex') || 
+                        v.name.includes('Fred') ||
+                        v.name.includes('Google UK English Male') ||
+                        v.name.includes('Microsoft David') ||
+                        v.name.toLowerCase().includes('male')
+                    );
+                    
+                    if (maleVoice) {
+                        utterance.voice = maleVoice;
+                    }
+                    
+                    // Natural, fun male voice settings
+                    utterance.rate = 1.02;     // Slightly slower = more natural
+                    utterance.pitch = 0.95;    // Lower pitch = sounds more male & friendly
+                    utterance.volume = 0.92;
+                    
                     window.speechSynthesis.speak(utterance);
                 }, 300);
             }
@@ -939,8 +958,6 @@
             recognition.onend = stopListening;
         }
         
-        let isListening = false;
-        
         function startListening() {
             if (!recognition) {
                 addBotMessage("Voice input is not supported in your browser. Please type instead.");
@@ -988,9 +1005,11 @@
                 }
             }, 1000);
             
-            // Load voices
+            // Preload voices for better selection
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.getVoices();
+                // Some browsers need this to load voices properly
+                setTimeout(() => window.speechSynthesis.getVoices(), 200);
             }
         }
         
