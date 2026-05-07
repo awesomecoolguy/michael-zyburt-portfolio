@@ -812,7 +812,14 @@
             
             if (chatOpen && document.getElementById('chat-messages').children.length === 0) {
                 setTimeout(() => {
-                    addBotMessage("Hi! I'm Michael's AI assistant. I can tell you about his projects, education, skills, or anything else. What would you like to know?");
+                    const greetings = [
+                        "Hello darling! I'm your cheeky British assistant. What can I tell you about Michael's brilliant work today?",
+                        "Oi oi! Your friendly British AI here. Fancy hearing about Michael's engineering adventures?",
+                        "Top of the morning to you! I'm Michael's sassy British sidekick. What shall we chat about?",
+                        "Well hello there, love! I'm here to spill all the tea on Michael's projects. What's on your mind?"
+                    ];
+                    const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+                    addBotMessage(greeting);
                 }, 300);
             }
         }
@@ -825,34 +832,59 @@
             container.appendChild(msg);
             container.scrollTop = container.scrollHeight;
             
-            // Speak if voice enabled (fun natural male voice)
+            // Speak if voice enabled (fun British female voice)
             if (voiceEnabled && 'speechSynthesis' in window) {
                 setTimeout(() => {
                     const utterance = new SpeechSynthesisUtterance(text);
                     
-                    // Try to find a fun, natural-sounding male voice
+                    // Try to find a fun British female voice
                     const voices = window.speechSynthesis.getVoices();
-                    const maleVoice = voices.find(v => 
-                        v.name.includes('Daniel') || 
-                        v.name.includes('Alex') || 
-                        v.name.includes('Fred') ||
-                        v.name.includes('Google UK English Male') ||
-                        v.name.includes('Microsoft David') ||
-                        v.name.toLowerCase().includes('male')
+                    const funBritishFemale = voices.find(v => 
+                        v.name.includes('Google UK English Female') ||
+                        v.name.includes('Karen') ||
+                        v.name.includes('Samantha') ||
+                        v.name.includes('Microsoft Hazel') ||
+                        v.name.includes('Serena') ||
+                        (v.name.toLowerCase().includes('uk') && v.name.toLowerCase().includes('female')) ||
+                        (v.name.toLowerCase().includes('british') && v.name.toLowerCase().includes('female'))
                     );
                     
-                    if (maleVoice) {
-                        utterance.voice = maleVoice;
+                    if (funBritishFemale) {
+                        utterance.voice = funBritishFemale;
                     }
                     
-                    // Natural, fun male voice settings
-                    utterance.rate = 1.02;     // Slightly slower = more natural
-                    utterance.pitch = 0.95;    // Lower pitch = sounds more male & friendly
-                    utterance.volume = 0.92;
+                    // Fun, natural British female voice settings
+                    utterance.rate = 1.08;
+                    utterance.pitch = 1.15;
+                    utterance.volume = 0.95;
                     
                     window.speechSynthesis.speak(utterance);
                 }, 300);
             }
+            
+            // Random dad joke (30% chance after longer responses)
+            if (text.length > 80 && Math.random() < 0.3) {
+                setTimeout(() => {
+                    const joke = getRandomDadJoke();
+                    addBotMessage(joke);
+                }, 1200);
+            }
+        }
+        
+        function getRandomDadJoke() {
+            const jokes = [
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "I'm reading a book about anti-gravity. It's impossible to put down!",
+                "Why did the scarecrow win an award? Because he was outstanding in his field!",
+                "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+                "Why don't eggs tell jokes? They'd crack each other up!",
+                "I'm on a seafood diet. I see food and I eat it!",
+                "Why did the bicycle fall over? Because it was two-tired!",
+                "What do you call a fake noodle? An impasta!",
+                "Why can't you give Elsa a balloon? Because she'll let it go!",
+                "I'm terrified of elevators, so I'm taking steps to avoid them."
+            ];
+            return jokes[Math.floor(Math.random() * jokes.length)];
         }
         
         function addUserMessage(text) {
