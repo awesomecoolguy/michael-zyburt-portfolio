@@ -251,11 +251,11 @@
                     <i class="fa-brands fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
-                <button onclick="copyEmail()" 
+                <a href="mailto:michaelzyburt@gmail.com"
                         class="flex items-center gap-x-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-[#0a1428] px-6 py-2.5 rounded-3xl font-semibold text-sm">
                     <i class="fa-solid fa-envelope"></i>
                     <span class="hidden sm:inline">Get in Touch</span>
-                </button>
+                </a>
                 <button onclick="toggleMobileMenu()" class="md:hidden text-3xl p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -272,7 +272,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4ff] opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00d4ff]"></span>
                     </span>
-                    MS Electrical Engineering • Expected June 2026
+                    MS Electrical Engineering • Graduated June 2026
                 </div>
                 
                 <h1 class="text-6xl md:text-7xl leading-none heading-font tracking-tighter">Michael Zyburt</h1>
@@ -406,7 +406,7 @@
                         <div class="flex gap-6">
                             <div class="text-right min-w-[140px]">
                                 <div class="text-[#00d4ff]">MS Electrical Engineering</div>
-                                <div class="text-sm text-white/60">Expected June 2026</div>
+                                <div class="text-sm text-white/60">Graduated June 2026</div>
                             </div>
                             <div class="text-white/80">Advanced studies in RF systems, embedded control, and avionics integration.</div>
                         </div>
@@ -929,7 +929,7 @@
                 return "Michael has completed 13 engineering projects! Highlights include the Solar Airplane, Rocket Avionics, High-Altitude Balloon, multiple autonomous rovers, Cargo Plane, and a Power-Saving ML Plug. Which one interests you?";
             }
             if (q.includes('education') || q.includes('degree') || q.includes('uci')) {
-                return "Michael holds BS degrees in both Aerospace and Electrical Engineering from UC Irvine (2024) and is currently pursuing his MS in Electrical Engineering there (expected June 2026).";
+                return "Michael holds BS degrees in both Aerospace and Electrical Engineering from UC Irvine (2024) and earned his MS in Electrical Engineering there in June 2026.";
             }
             if (q.includes('skill') || q.includes('skills')) {
                 return "His core skills include MATLAB/Python/C++, SolidWorks, PCB design & advanced soldering, PID control systems, RF hardware, and rigorous testing with oscilloscopes and environmental chambers.";
